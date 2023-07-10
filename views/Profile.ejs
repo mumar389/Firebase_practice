@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <form action="/get-files" method="post">
+      Name-:
+      <br />
+      <br />
+      <input type="text" name="name" />
+      <br />
+      <br />
+      <button type="submit">Fetch</button>
+    </form>
+    <%if(url===false){%>
+    <%if(cu===0){%>
+        <h4>No Profile With this name exists</h4> 
+        <%}else{%>
+
+            <h2>Name-:<%=cu.name%></h2>
+            <img src="<%=cu.image%>" alt="<%=cu.name%>" height="400px">
+            <br>
+            <br>
+             <%}%>
+             <%}else{%>
+                
+                <%}%>
+                <a href="/">Home</a>
+  </body>
+</html>
