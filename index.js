@@ -155,7 +155,7 @@ app.post("/get-files", async (req, res) => {
 app.post('/delete-image/:id',async(req,res)=>{
   let cid=req.params.id
   let currentUserFile=await User.findById(cid);
-  console.log("Found",currentUserFile);
+  // console.log("Found",currentUserFile);
   if(!currentUserFile){
      res.redirect('/profile')
   }else{
@@ -163,7 +163,7 @@ app.post('/delete-image/:id',async(req,res)=>{
   const filename=currentUserFile.filename
     try {
       await bucket.file(filename).delete();
-      console.log('Image deleted successfully');
+      // console.log('Image deleted successfully');
       await User.deleteOne({_id:cid})
        res.redirect('/')
     } catch (error) {
