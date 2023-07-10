@@ -23,12 +23,12 @@
             <h2>Name-:<%=cu.name%></h2>
             <%if(cu.type==="png" || cu.type==="jpg" || cu.type==="jpeg"){%>
             <img src="<%=cu.image%>" alt="<%=cu.name%>" height="400px">
-            <form action="/delete-image/<%=cu.id%>" method="post">
-              <button type="submit">Delete</button>
-            </form>
             <%}else{%>
               <h4>Not Yet Handled This File Type Please Wait for deleveloper to handle it😢😢</h4>
               <%}%>
+              <form action="/delete-image/<%=cu.id%>" method="post">
+                <button type="submit">Delete</button>
+              </form>
             <br>
             <br>
              <%}%>
