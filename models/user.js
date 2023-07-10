@@ -12,7 +12,15 @@ const userSchema=new mongoose.Schema({
     filename:{
         type:String,
         required:true
-    }
+    },
+    type:{
+        type:String,
+        required:true
+    },
+    size:{
+        type:String,
+        required:true
+    },
    
 },{
     timestamps:true

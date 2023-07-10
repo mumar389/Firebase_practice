@@ -19,6 +19,8 @@ app.get("/", (req, res) => {
 });
 app.post("/upload", upload.single("image"), async(req, res) => {
   const file = req.file;
+  const fileType=file.mimetype.split('/')[1]
+  const size=file.size
   const { name } = req.body;
   let currentUser=await User.findOne({name})
   if(!currentUser){
@@ -61,7 +63,9 @@ app.post("/upload", upload.single("image"), async(req, res) => {
           let newUser = await User.create({
             name,
             image: downloadUrl,
-            filename
+            filename,
+            type:fileType,
+            size
           });
           // console.log("Download URL:", `${day}-${month}-${year}`);
         })
@@ -116,6 +120,8 @@ app.post("/upload", upload.single("image"), async(req, res) => {
           await storageBucket.file(oldFileName).delete();
           currentUser.image=downloadUrl
           currentUser.filename=filename 
+          currentUser.type=fileType
+          currentUser.size=size
           currentUser.save()
           // console.log("Download URL:", `${day}-${month}-${year}`);
         })
