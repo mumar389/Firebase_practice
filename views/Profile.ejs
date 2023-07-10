@@ -22,6 +22,9 @@
 
             <h2>Name-:<%=cu.name%></h2>
             <img src="<%=cu.image%>" alt="<%=cu.name%>" height="400px">
+            <form action="/delete-image/<%=cu.id%>" method="post">
+              <button type="submit">Delete</button>
+            </form>
             <br>
             <br>
              <%}%>
