@@ -25,6 +25,7 @@
             <img src="<%=cu.image%>" alt="<%=cu.name%>" height="400px">
             <%}else{%>
               <h4>Not Yet Handled This File Type Please Wait for deleveloper to handle it😢😢</h4>
+              <h5>File Type-:<%=cu.type%></h5>
               <%}%>
               <form action="/delete-image/<%=cu.id%>" method="post">
                 <button type="submit">Delete</button>
