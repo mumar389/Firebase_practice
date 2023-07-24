@@ -9,11 +9,14 @@ const User = require("./models/user");
 const firebaseConnection = require("./config/firebase");
 const storageMulter = multer.memoryStorage();
 const upload = multer({ storage: storageMulter });
+//body-pasrser
+const bodyParser = require("body-parser");
 const app = express();
 
 app.set("view engine", "ejs");
 app.set('views',path.join(__dirname,'views'))
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: "150mb" }));
 app.get("/", (req, res) => {
   res.render("home");
 });
